@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Page info -->
+    <title>Faça sua pergunta - Quiz.zZ></title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-AU-Compatible" content="IE=edge">
+
+    <!-- view Port -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/public/styles/global.css" />
+    <link rel="stylesheet" href="/public/styles/room.css" />
+    <link rel="stylesheet" href="/public/styles/modal.css" />
+
+    <!-- Script -->
+    <script src="/HTML e CSS/scripts/main.js" defer type="module"></script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div id="room" class="content">
+      <header>
+          <a class="logo" href="/">
+            <h2>
+              <img src="public/images/fonts/Icon.svg" alt="Responda.Me Logo" /></span>
+              Quiz<span1>.</span1>zZ</span
+              >
+            </h2>
+            <div class="buttons">
+              <div class="button outlined" id="room-id" data-id="<%= roomId %>">
+                #1502150
+                <img src="public/images/fonts/copy.svg" alt="Copiar o numero da sala">
+              </div>
+              <a href="/create-pass" class="button">
+                <img src="public/images/fonts/users-white.svg" alt="Criar uma sala">
+                <span>Criar Sala</span>
+              </a>
+            </div>
+          </a>
+      </header>
+
+      <main>
+        <section id="question-form">
+          <h2>Faça sua pergunta</h2>
+          <form action="/question/create/<%= roomId %>" method="POST">
+            <label class="sr-only" for-id="question">O que você quer perguntar?</label>
+            <textarea name="question" id="question" placeholder="O que você quer perguntar?"></textarea>
+
+            <footer>
+              <div>
+                <img src="public/images/fonts/lock.svg" alt="Cadeado">
+                Esta pergunta é anônima
+              </div>
+              <button>Enviar</button>
+            </footer>
+          </form>
+        </section>
+
+        <section id="questions">
+          <h2 class="sr-only">Perguntas da comunidade</h2>
+          <div class="questions">
+
+              <div class="question-wrapper">
+                <div class="question-content">
+                  <div class="user">
+                    <img src="public/images/fonts/user.svg" alt="Avatar">
+                  </div>
+                  <div class="question">
+                    <p>Qual a diferença entre o Front-end e o Back-end  ?</p>
+                  </div>
+                </div>
+                <div class="actions">
+                  <a href="#" class="check" data-id="<%= question.id %>">
+                    <img src="public/images/fonts/check.svg" alt="Marcar como lida">
+                    Marcar como lida
+                  </a>
+                  <a href="#" class="delete" data-id="<%= question.id %>">
+                    <img src="public/images/fonts/trash.svg" alt="Excluir">
+                    Excluir
+                  </a>
+                </div>
+              </div> 
+
+              <div class="question-wrapper">
+                <div class="question-content">
+                  <div class="user">
+                    <img src="public/images/fonts/user.svg" alt="Avatar">
+                  </div>
+                  <div class="question">
+                    <p>Qual a diferença entre const, var e let no JavaScript ?</p>
+                  </div>
+                </div>
+                <div class="actions">
+                  <a href="#" class="check" data-id="<%= question.id %>">
+                    <img src="public/images/fonts/check.svg" alt="Marcar como lida">
+                    Marcar como lida
+                  </a>
+                  <a href="#" class="delete" data-id="<%= question.id %>">
+                    <img src="public/images/fonts/trash.svg" alt="Excluir">
+                    Excluir
+                  </a>
+                </div>
+              </div>
+
+              <div class="question-wrapper">
+                <div class="question-content">
+                  <div class="user">
+                    <img src="public/images/fonts/user.svg" alt="Avatar">
+                  </div>
+                  <div class="question">
+                    <p>O que é JavaScript ?</p>
+                  </div>
+                </div>
+                <div class="actions">
+                  <a href="#" class="check" data-id="<%= question.id %>">
+                    <img src="public/images/fonts/check.svg" alt="Marcar como lida">
+                    Marcar como lida
+                  </a>
+                  <a href="#" class="delete" data-id="<%= question.id %>">
+                    <img src="public/images/fonts/trash.svg" alt="Excluir">
+                    Excluir
+                  </a>
+                </div>
+              </div>
+
+              <div class="question-wrapper read">
+                <div class="question-content">
+                  <div class="user">
+                    <img src="public/images/fonts/user.svg" alt="Avatar">
+                  </div>
+                  <div class="question">
+                    <p>Qual as vantagens do React ?</p>
+                  </div>
+                </div>
+                <div class="actions">
+                  <a href="#" class="delete" data-id="<%= questionRead.id %>">
+                    <img src="public/images/fonts/trash.svg" alt="Excluir">
+                    Excluir
+                  </a>
+                </div>
+              </div>           
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal-wrapper">
+      <div class="modal">
+        <h2>Excluir Pergunta</h2>
+        <p>Tem certeza que você deseja excluir esta pergunta?</p>
+
+        <form action="#">
+          <label class="sr-only" for-id="password">Digite sua senha admin</label>
+          <input type="password" name="password" id="password" placeholder="Digite sua senha">
+
+          <div class="buttons">
+            <div class="button grey cancel">Cancelar</div>
+            <button class="red">Sim, excluir</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,156 @@
+/*=== RESET ==*/
+* {
+  margin: 0;
+  padding: 0;
+  border: none;
+
+  text-decoration: none;
+  box-sizing: border-box;
+}
+
+/*=== VARIABLES ===*/
+:root {
+  /* colors */
+  --black: #0d114f;
+  --white: #fafafa;
+  --red: #e83f5b;
+  --light-blue: #e0ecff;
+  --blue: #3485ff;
+  --background: #fbfcff;
+  --overlay: #040911;
+  --icons-details: #a5b0c1;
+
+  /* colors Grey */
+  --grey-dark: #4d5e77;
+  --grey-blue: #a1b2cd;
+  --grey-medium: #d3d9e2;
+  --grey-light: #e5eaf1;
+
+  /* colors Hover */
+  --hover-blue: #5699ff;
+  --hover-red: #ea4b65;
+  --hover-grey: #8794a7;
+  --grey-medium: #eaecf1;
+
+  /*=== Fonts ===*/
+  --title-font: 'Poppins', sans-serif;
+  --body-font: 'Open Sans', sans-serif;
+
+  --title-font-size: 1.875rem;
+
+  font-size: 62.5%;
+}
+
+body {
+  display: flex;
+  height: 100vh;
+  background: var(--background);
+}
+
+body,
+button,
+input,
+textarea {
+  /*=== Intervalo de tamanho ===*/
+  font-size: clamp(14px, 1.6rem, 2vw);
+
+  font-family: var(--body-font);
+}
+
+.content {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.sr-only {
+  position: absolute;
+  height: 1px;
+  width: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/*--- input and buttons ---*/
+input,
+button,
+.button {
+  border-radius: 0.8rem;
+  height: 5rem;
+}
+
+button,
+.button {
+  font-family: 'Poppins';
+  font-weight: 500;
+  line-height: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: var(--blue);
+  color: var(--white);
+
+  cursor: pointer;
+}
+
+button:hover,
+.button:hover {
+  filter: brightness(1.2);
+  transition: filter 0.2s;
+}
+
+button > img,
+.button > img {
+  margin-right: 1rem;
+  width: 2rem;
+}
+
+button.outlined,
+.button.outlined {
+  background: var(--white);
+  color: var(--blue);
+  border: 0.2rem solid var(--blue);
+}
+
+button.red,
+.button.red {
+  background: var(--red);
+  color: var(--white);
+}
+
+button.grey,
+.button.grey {
+  background: var(--grey-light);
+  color: var(--grey-dark);
+}
+
+.content header {
+  width: 80%;
+  margin: 3.7rem auto;
+  margin-left: 21.4rem;
+}
+
+.content header img {
+  width: 4.3rem;
+}
+
+header h2 {
+  font: 700 2.6rem var(--title-font);
+  color: var(--overlay);
+
+  display: flex;
+}
+
+header h2 span1 {
+  color: var(--hover-blue);
+}
+
+header img {
+  margin-right: 1rem;
+  margin-bottom: 0.5rem;
+}
