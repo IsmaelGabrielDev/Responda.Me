@@ -1,1 +1,1 @@
-## Site funcional Quiz, criado com Javascript, Node, MySQL, HTML e CSS.
+## Site funcional Quiz, criado com Javascript, Node, SQLite, HTML e CSS.
