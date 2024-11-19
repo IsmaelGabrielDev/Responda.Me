@@ -8,6 +8,27 @@ const modalButton = document.querySelector('.modal button')
 
 const checkButtons = document.querySelectorAll('.actions a.check')
 
+function mensagemRetorno(mensagem) {
+  var notification = document.getElementById('notification');
+
+  notification.innerText = mensagem;
+  notification.style.display = 'block';
+  
+  setTimeout(function() {
+      notification.style.display = 'none';
+  }, 5000);
+};
+
+document.getElementById('room-id').addEventListener('click', function() {
+  const codigoSala = this.dataset.id;
+
+  navigator.clipboard.writeText(codigoSala).then(() => {
+      mensagemRetorno("Código copiado com sucesso!");
+  }).catch(err => {
+      mensagemRetorno("Falha ao copiar o texto. Por favor, copie manualmente.");
+  });
+});
+
 checkButtons.forEach(button => {
   button.addEventListener('click', handleClick)
 })
